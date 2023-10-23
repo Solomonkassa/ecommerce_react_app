@@ -1,0 +1,21 @@
+# render.yaml
+
+services:
+  - name: web
+    buildCommand: yarn build
+    startCommand: yarn start
+    env:
+      - key: NODE_ENV
+        value: production
+
+build:
+  environment:
+    - name: NODE_VERSION
+      value: 14
+
+routes:
+  - type: rewrite
+    source: /(.*)  # Match all incoming requests
+    destination: /  # Rewrite all requests to the root
+
+# Add any additional configuration as needed
